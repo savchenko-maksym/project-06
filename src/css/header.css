@@ -148,12 +148,13 @@ html {
 /* -----------------------mob-menu------------------------- */
 
 .mob-menu {
-  background-image: url(../img/header/bacground-img-mob-menu.jpg);
+  background-image: url(/img/header/bacground-img-mob-menu.jpg);
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 50%; /* Размещаем центр меню по центру экрана */
+  transform: translateX(-50%) translateY(-100%); /* Смещаем вверх (скрываем) */
   padding-top: 32px;
   padding-right: 18px;
   padding-bottom: 64px;
@@ -168,12 +169,14 @@ html {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Плавная анимация */
 }
 
 .mob-menu.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transform: translateX(-50%) translateY(0); /* Показываем, смещая вниз */
 }
 
 .menu-close-btn {
