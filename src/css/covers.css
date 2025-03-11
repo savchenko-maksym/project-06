@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container-covers {
+    padding: 164px 0 0 0;
+    min-width: 320px;
+    max-width: 767px;
+}
+
+.content-covers {
+    position: relative;
+    min-width: 320px;
+    max-width: 767px;
+    min-height: 508px;
+    backdrop-filter: blur(30px);
+    border-color: rgba(217, 217, 217, 0.04);
+    background-image: url("/img/covers/Rectangle13-mob.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 320px) and (min-resolution: 2dppx),
+(min-resolution: 192dpi),
+(-webkit-min-device-pixel-ratio: 2) {
+    .content-covers {
+        background-image: url("/img/covers/Rectangle13-mob@2x.png");
+    }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+}
+
+.marquee {
+    position: absolute;
+    max-width: 1440px;
+    height: 1210px;
+    right: -800px;
+    top: -200px;
+    left: 0;
+}
+
+.marquee__inner {
+    display: flex;
+    transform: rotate(16deg);
+}
+
+.marquee__line {
+    flex-shrink: 0;
+    margin-top: 20px;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    animation-name: marqueeLine;
+    animation-duration: 14s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.marquee_img {
+    display: block;
+    width: 282px;
+    height: 162px;
+    object-fit: cover;
+}
+
+@keyframes marqueeLine {
+    from {
+        transform: translateX(-20%);
+    }
+
+    to {
+        transform: translateX(-340%);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container-covers {
+        max-width: 1439px;
+    }
+
+    .content-covers {
+        max-width: 1439px;
+        background-image: url("/img/covers/Rectangle13-tabl.png");
+        min-height: 960px;
+    }
+
+    .marquee_img {
+        width: 544px;
+        height: 314px;
+    }
+
+    .marquee {
+        position: absolute;
+        height: 1420px;
+        right: -800px;
+        top: -460px;
+    }
+
+    .marquee__line {
+        flex-shrink: 0;
+        margin-top: 40px;
+        margin-right: 38px;
+    }
+}
+
+@media screen and (min-width: 768px) and (min-resolution: 2dppx),
+(min-resolution: 192dpi),
+(-webkit-min-device-pixel-ratio: 2) {
+    .content-covers {
+        background-image: url("/img/covers/Rectangle13-tabl@2x.png");
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container-covers {
+        max-width: 1440px;
+    }
+
+    .content-covers {
+        max-width: 1440px;
+        background-image: url("/img/covers/Rectangle13.png");
+    }
+}
+
+@media screen and (min-width: 1440px) and (min-resolution: 2dppx),
+(min-resolution: 192dpi),
+(-webkit-min-device-pixel-ratio: 2) {
+    .content-covers {
+        background-image: url("/img/covers/Rectangle13@2x.png");
+    }
+}
