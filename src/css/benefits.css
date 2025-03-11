@@ -9,7 +9,7 @@
 }
 
 .container-bf {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   text-align: center;
 }
@@ -168,6 +168,6 @@
 
   .benefit-item {
     max-width: 260px;
-    padding: 30px;
+    /* padding: 30px; */
   }
 }
