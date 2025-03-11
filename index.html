@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/project-06/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-06/assets/vendor-DJ7Tif3U.js">
     <link rel="stylesheet" crossorigin href="/project-06/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/project-06/assets/index-BUchWY3I.css">
+    <link rel="stylesheet" crossorigin href="/project-06/assets/index-Bs6CCTTh.css">
   </head>
   <body>
     <header class="header">
@@ -32,8 +32,8 @@
       <span class="header-logo-text">jefferson*</span>
     </a>
     <nav class="header-nav">
-      <button class="header-btn" type="button">Menu</button>
-      <ul class="header-nav-list">
+      <button class="header-btn header-btn-js" type="button">Menu</button>
+      <ul class="header-nav-list menu-list-js">
         <li class="header-nav-item"><a href="#about-me">About me</a></li>
         <li class="header-nav-item"><a href="#benefits">Benefits</a></li>
         <li class="header-nav-item"><a href="#projects">Projects</a></li>
@@ -48,29 +48,27 @@
     </button>
   </div>
 </header>
-<div class="mob-menu" data-menu>
-  <div class="mob-menu-wrap">
-    <button type="button" class="menu-close-btn" data-menu-close>
-      <svg class="menu-close-icon" width="34" height="34">
-        <use href="../img/icons.svg#icon-close"></use>
-      </svg>
-    </button>
-    <ul class="mob-menu-nav-list">
-      <li class="mob-menu-nav-item">
-        <a class="mob-menu-nav-link" href="">About me</a>
-      </li>
-      <li class="mob-menu-nav-item">
-        <a class="mob-menu-nav-link" href="">Benefits</a>
-      </li>
-      <li class="mob-menu-nav-item">
-        <a class="mob-menu-nav-link" href="">Projects</a>
-      </li>
-      <li class="mob-menu-nav-item">
-        <a class="mob-menu-nav-link" href="">FAQ</a>
-      </li>
-    </ul>
-    <a class="mob-menu-link" href="#work-together">Order the project</a>
-  </div>
+<div class="mob-menu mob-menu-js" data-menu>
+  <button type="button" class="menu-close-btn" data-menu-close>
+    <svg class="menu-close-icon" width="34" height="34">
+      <use href="../img/icons.svg#icon-close"></use>
+    </svg>
+  </button>
+  <ul class="mob-menu-nav-list">
+    <li class="mob-menu-nav-item">
+      <a class="mob-menu-nav-link" href="#about-me">About me</a>
+    </li>
+    <li class="mob-menu-nav-item">
+      <a class="mob-menu-nav-link" href="#benefits">Benefits</a>
+    </li>
+    <li class="mob-menu-nav-item">
+      <a class="mob-menu-nav-link" href="#projects">Projects</a>
+    </li>
+    <li class="mob-menu-nav-item">
+      <a class="mob-menu-nav-link" href="#faq">FAQ</a>
+    </li>
+  </ul>
+  <a class="mob-menu-link" href="#work-together">Order the project</a>
 </div>
 
     
@@ -79,46 +77,55 @@
       
 
       
-      <section class="benefits">
-    <div class="container container-bf">
-        <h2 class="main-title">Benefits of working with me</h2>
-        <ul class="benefits-list">
-            <li class="benefit-item">
-                <svg class="benefit-icon" aria-hidden="true">
-                    <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#expertise-icon"></use>
-                </svg>
-                <h3 class="benefit-title">Expertise</h3>
-                <p class="benefit-text">As a highly experienced developer, I have deep knowledge of programming and
-                    website development.</p>
-            </li>
-            <li class="benefit-item">
-                <svg class="benefit-icon" aria-hidden="true">
-                    <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#communication-icon"></use>
-                </svg>
-                <h3 class="benefit-title">Communication</h3>
-                <p class="benefit-text">Understanding your needs and wants is my priority and I am always open to
-                    discussions and corrections.</p>
-            </li>
-            <li class="benefit-item">
-                <svg class="benefit-icon" aria-hidden="true">
-                    <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#art-icon"></use>
-                </svg>
-                <h3 class="benefit-title">Art</h3>
-                <p class="benefit-text">Thanks to my creative nature, I am ready to accept challenges and help you bring
-                    your ideas to life.</p>
-            </li>
-            <li class="benefit-item">
-                <svg class="benefit-icon" aria-hidden="true">
-                    <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#urgent-icon"></use>
-                </svg>
-                <h3 class="benefit-title">Urgent execution</h3>
-                <p class="benefit-text">I understand how important time is to you. Ready to work quickly and
-                    efficiently, without reducing the quality of work.</p>
-            </li>
-        </ul>
-        <a href="#work-together" class="button">Order the project</a>
-    </div>
+      <section class="benefits" id="benefits">
+  <div class="container container-bf">
+    <h2 class="main-title">Benefits of working with me</h2>
+    <ul class="benefits-list">
+      <li class="benefit-item">
+        <svg class="benefit-icon" aria-hidden="true">
+          <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#expertise-icon"></use>
+        </svg>
+        <h3 class="benefit-title">Expertise</h3>
+        <p class="benefit-text">
+          As a highly experienced developer, I have deep knowledge of
+          programming and website development.
+        </p>
+      </li>
+      <li class="benefit-item">
+        <svg class="benefit-icon" aria-hidden="true">
+          <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#communication-icon"></use>
+        </svg>
+        <h3 class="benefit-title">Communication</h3>
+        <p class="benefit-text">
+          Understanding your needs and wants is my priority and I am always open
+          to discussions and corrections.
+        </p>
+      </li>
+      <li class="benefit-item">
+        <svg class="benefit-icon" aria-hidden="true">
+          <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#art-icon"></use>
+        </svg>
+        <h3 class="benefit-title">Art</h3>
+        <p class="benefit-text">
+          Thanks to my creative nature, I am ready to accept challenges and help
+          you bring your ideas to life.
+        </p>
+      </li>
+      <li class="benefit-item">
+        <svg class="benefit-icon" aria-hidden="true">
+          <use xlink:href="/project-06/assets/icons-CggKIKY3.svg#urgent-icon"></use>
+        </svg>
+        <h3 class="benefit-title">Urgent execution</h3>
+        <p class="benefit-text">
+          I understand how important time is to you. Ready to work quickly and
+          efficiently, without reducing the quality of work.
+        </p>
+      </li>
+    </ul>
+    <a href="#work-together" class="button">Order the project</a>
+  </div>
 </section>
+
       
       
       
