@@ -1,7 +1,8 @@
 /* Основні стилі */
 .benefits {
   background: #1c1d20;
-  padding: 60px 20px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,0 +1,129 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* -------------------styles-mob------------------------ */
+
+.header {
+  padding: 32px 16px;
+}
+
+.header-wrap {
+  /* padding: 20px; */
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.header-logo {
+  display: flex; /* Вирівнюємо елементи в один рядок */
+  /* align-items: center; */
+  gap: 8px; /* Відступ між картинкою та текстом */
+  text-decoration: none; /* Прибираємо підкреслення у посилання */
+}
+
+.header-logo-img {
+  border-radius: 18px;
+  width: 80px;
+  height: 80px;
+}
+
+.header-logo-text {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+}
+
+.header-logo:hover span {
+  color: #ed3b44;
+}
+
+.header-nav {
+  display: none;
+}
+.header-btn {
+}
+.header-nav-list {
+}
+.header-nav-item {
+}
+.header-link {
+  display: none;
+}
+.menu-open-btn {
+  display: block;
+}
+
+.menu-open-icon {
+  stroke-width: 2.5px;
+  stroke: #fafafa;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 32px;
+  }
+
+  .menu-open-btn {
+    display: none;
+  }
+}
+
+/* -----------------------mob-menu------------------------- */
+
+.mob-menu {
+  background-color: #0c0c0c;
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  padding-left: 39px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: auto;
+  z-index: 999;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.mob-menu-wrap {
+}
+.menu-close-btn {
+}
+.menu-close-icon {
+}
+.mob-menu-nav-list {
+}
+.mob-menu-nav-item {
+}
+.mob-menu-nav-link {
+}
+.mob-menu-link {
+}
