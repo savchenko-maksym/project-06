@@ -28,7 +28,6 @@ html {
 /* -------------------styles-mob------------------------ */
 
 .header {
-  /* padding-top: 32px; */
   position: absolute;
   top: 32px;
   left: 50%;
@@ -61,6 +60,7 @@ html {
   font-size: 20px;
   letter-spacing: -0.02em;
   color: #fafafa;
+  transition: color 0.2s ease;
 }
 
 .header-logo:hover span {
@@ -80,7 +80,13 @@ html {
   background: none;
   border: none;
   padding: 10px;
+  transition: color 0.2s ease;
 }
+
+.header-btn:hover {
+  color: #ed3b44;
+}
+
 .header-nav-list {
 }
 .header-nav-item {
@@ -133,6 +139,12 @@ html {
     font-size: 16px;
     letter-spacing: -0.02em;
     color: #fafafa;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .header-link:hover {
+    background-color: #e0373f;
   }
 
   .header-nav-list.active {
@@ -148,7 +160,13 @@ html {
     justify-content: center;
     flex-direction: column;
     gap: 12px;
+    transition: color 0.2s ease;
   }
+
+  /* .header-nav-list: hover a {
+    color: #ed3b44;
+    text-decoration-color:#ed3b44;
+  } */
 }
 
 @media screen and (min-width: 1440px) {
@@ -158,7 +176,7 @@ html {
 
 .mob-menu {
   /* background-image: url(/img/header/bacground-img-mob-menu.jpg); */
-  background-image: url(../img/header/bg.jpg);
+  background-image: url(/img/header/bg.jpg);
   background-size: cover;
   height: 100%;
   width: 100%;
