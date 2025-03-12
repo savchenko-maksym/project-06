@@ -87,7 +87,7 @@ html {
 }
 
 .menu-open-icon {
-  fill: none;
+  fill: transparent; /* Иногда помогает вместо none */
   stroke-width: 2.5px;
   stroke: #fafafa;
 }
@@ -185,8 +185,7 @@ html {
 }
 
 .menu-close-icon {
-  stroke: #fafafa;
-  stroke-width: 2.5px;
+  stroke: none;
 }
 
 .mob-menu-nav-list {
