@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/project-06/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-06/assets/vendor-C2oyL2vk.js">
     <link rel="stylesheet" crossorigin href="/project-06/assets/vendor-CyFlzuZ4.css">
-    <link rel="stylesheet" crossorigin href="/project-06/assets/index-Bxqm5unQ.css">
+    <link rel="stylesheet" crossorigin href="/project-06/assets/index-BkqHih4f.css">
   </head>
   <body>
     <header class="header">
@@ -807,7 +807,42 @@
       
     </main>
 
-    
+    <footer class="footer">
+    <div class="footer-content" id="work-together">
+        <div class="work-together">
+            <img src="/project-06/assets/work-together-DQdmy3If.png" alt="logo" class="logo-footer" />
+            <p class="title-footer">LET’S <span class="work-span">WORK</span></p>
+        </div>
+        <p class="together-span">TOGETHER</p>
+        <div class="contact-btn">
+            <form class="contact-form" id="contactForm">
+             
+                <input class="email-form input-form" type="email" id="email" placeholder="clients@gmail.com" 
+                pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
+                <p id="message" class="hidden"></p>
+           
+                <input class="comments input-form" type="text" id="comment" placeholder="comments" required>
+            </form>
+            <button type="submit" class="send-button" id="openModalBtn">Send</button>
+        </div>
+        <ul class="contact-info">
+            <li class="contact-li email-contact"><a href="mailto:lloydjefferson@gmail.com" class="contact-a">lloydjefferson@gmail.com</a></li>
+            <li class="contact-li telephone-contact"><a href="tel:+3801111111111" class="contact-a">+380 11 1111 11 11</a></li>
+        </ul>
+    </div>
+</footer>
+
+<div id="modal" class="backdrop">
+    <div class="modal">
+        <button type="button" class="modal-open" id="close">
+            <svg class="icon-close" width="8" height="8">
+                <use href="/src/img/icons.svg#icon-close"></use>
+            </svg>
+        </button>
+        <p class="modal-title">Thank you for your interest in cooperation!</p>
+        <p class="modal-text">The manager will contact you shortly to discuss further details and opportunities for cooperation. Please stay in touch.</p>
+    </div>
+</div>
 
   </body>
 </html>
