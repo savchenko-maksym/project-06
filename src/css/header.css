@@ -28,7 +28,13 @@ html {
 /* -------------------styles-mob------------------------ */
 
 .header {
-  padding-top: 32px;
+  /* padding-top: 32px; */
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  width: calc(100% - 32px);
+  transform: translateX(-50%);
+  z-index: 9;
 }
 
 .header-wrap {
@@ -83,18 +89,21 @@ html {
   display: none;
 }
 .menu-open-btn {
-  display: inline-block;
+  display: block;
 }
 
 .menu-open-icon {
-  fill: transparent; /* Иногда помогает вместо none */
-  stroke-width: 2.5px;
   stroke: #fafafa;
+  transition: stroke 0.2s ease;
+}
+
+.menu-open-btn:hover .menu-open-icon {
+  stroke: #ed3b44;
 }
 
 @media screen and (min-width: 768px) {
   .header {
-    padding: 32px;
+    width: calc(100% - 64px);
   }
 
   .menu-open-btn {
@@ -148,7 +157,9 @@ html {
 /* -----------------------mob-menu------------------------- */
 
 .mob-menu {
-  background-image: url(/img/header/bacground-img-mob-menu.jpg);
+  /* background-image: url(/img/header/bacground-img-mob-menu.jpg); */
+  background-image: url(../img/header/bg.jpg);
+  background-size: cover;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -184,8 +195,13 @@ html {
   display: block;
 }
 
+.menu-close-btn:hover svg {
+  stroke: #ed3b44;
+}
+
 .menu-close-icon {
-  stroke: none;
+  stroke: #fafafa;
+  transition: stroke 0.2s ease;
 }
 
 .mob-menu-nav-list {
