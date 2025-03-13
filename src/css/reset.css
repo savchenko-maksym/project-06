@@ -20,11 +20,13 @@ ul {
 
 a {
   color: currentColor;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
 }
 
 img {

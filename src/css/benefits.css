@@ -121,11 +121,6 @@
   transform: scale(1.02);
 }
 
-/* svg {
-    width: 48px;
-    height: 48px;
-} */
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* svg {
         image-rendering: -webkit-optimize-contrast;
@@ -135,7 +130,9 @@
 /* Мобільні пристрої */
 @media (max-width: 767px) {
   .benefits {
+
       padding-top: 96px;
+
   }
   .benefit-item {
     flex: 1 1 100%;
@@ -156,6 +153,7 @@
 /* Десктопи (від 1440px) */
 @media (min-width: 1440px) {
   .container-bf {
+
       display: grid;
       grid-template-columns: 1fr 2fr;
       grid-column-gap: 412px;
