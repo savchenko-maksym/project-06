@@ -57,6 +57,7 @@
   fill: var(--color1, #ed3b44);
   transition: fill 0.3s ease;
   margin-bottom: 64px;
+  flex-shrink: 0;
 }
 
 .benefit-item:hover .benefit-icon {
@@ -130,9 +131,7 @@
 /* Мобільні пристрої */
 @media (max-width: 767px) {
   .benefits {
-
-      padding-top: 96px;
-
+    padding-top: 96px;
   }
   .benefit-item {
     flex: 1 1 100%;
@@ -153,36 +152,30 @@
 /* Десктопи (від 1440px) */
 @media (min-width: 1440px) {
   .container-bf {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 412px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
 
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      grid-column-gap: 412px;
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-  
-    .main-title {
-      text-align: left;
-    }
+  .main-title {
+    text-align: left;
+  }
 
-    .benefit-icon {
-      flex-shrink: 0;
-    }
-  
-    .benefits-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 16px;
-    }
-  
-    .benefit-item {
-      text-align: left;
-    }
-  
-    .button {
-      grid-column: 2;
-      align-self: flex-start;
-      margin-top: 64px;
-    }
-    
+  .benefits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+
+  .benefit-item {
+    text-align: left;
+  }
+
+  .button {
+    grid-column: 2;
+    align-self: flex-start;
+    margin-top: 64px;
+  }
 }
