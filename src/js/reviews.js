@@ -1,90 +1,83 @@
-// Імпорт iziToast для сповіщень
-import iziToast from 'izitoast';
-// Імпорт стилів iziToast
-import 'izitoast/dist/css/iziToast.min.css';
+// import Swiper bundle with all modules installed
+import Swiper from 'swiper';
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const reviewsList = document.getElementById("reviews-list");
-    const prevButton = document.getElementById("prev-button");
-    const nextButton = document.getElementById("next-button");
+// import styles bundle
+import 'swiper/css';
 
-    const apiUrl = "https://portfolio-js.b.goit.study/api/reviews";
+function doFetch(foo, murkUpFoo) {
+  const REVIEWS_LIST = document.getElementById('reviewsList');
+  fetch('https://portfolio-js.b.goit.study/api/reviews')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then(reviews => {
+      const markup = reviews
+        .map(review => {
+          return murkUpFoo(review);
+        })
+        .join('');
 
-    try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error("Failed to fetch reviews");
+      REVIEWS_LIST.innerHTML = markup; // Вставляємо HTML у список відгуків
+      foo();
+    })
+    .catch(error => {
+      console.error(error);
+      iziToast.error({
+        title: 'Помилка',
+        message: 'Не вдалося завантажити список відгуків',
+      });
+      REVIEWS_LIST.innerHTML = 'Not found'; // Відображаємо текст-заглушку
+    });
+}
 
-        const reviews = await response.json();
-        if (reviews.length === 0) {
-            reviewsList.innerHTML = "<p class='error-message'>No reviews available</p>";
-            return;
-        }
+const SCREEN_WIDTH = window.innerWidth;
+let slidesPerView;
 
-        reviewsList.innerHTML = "";
-        reviews.slice(0, 6).forEach(review => {
-            const reviewItem = document.createElement("div");
-            reviewItem.classList.add("swiper-slide");
-            reviewItem.innerHTML = `
-                <div class="review">
-                    <img 
-                        src="${review.avatar_url || 'images/default-avatar.png'}" 
-                        alt="${review.author}" 
-                        class="review-avatar" 
-                        loading="lazy" 
-                    >
-                    <h3 class="review-author">${review.author}</h3>
-                    <p class="review-text">${review.review}</p>
-                </div>
-            `;
-            reviewsList.appendChild(reviewItem);
-        });
+if (SCREEN_WIDTH >= 1440) {
+  slidesPerView = 4;
+} else if (SCREEN_WIDTH >= 768 && SCREEN_WIDTH < 1440) {
+  slidesPerView = 2;
+} else if (SCREEN_WIDTH < 768) {
+  slidesPerView = 1;
+}
 
-        const swiper = new Swiper(".swiper", {
-            slidesPerView: 1,
-            spaceBetween: 16,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-                type: "bullets",
-            },
-            breakpoints: {
-                768: { slidesPerView: 2, spaceBetween: 16 },
-                1440: { slidesPerView: 4, spaceBetween: 16 },
-            },
-            on: {
-                init: function () {
-                    setEqualHeight();
-                },
-                resize: function () {
-                    setEqualHeight();
-                }
-            }
-        });
+function createSwiper() {
+  const SWIPER = new Swiper('.reviews-swiper', {
+    // Optional parameters
+    // cssMode: true,
+    navigation: true,
 
-        function setEqualHeight() {
-            let maxHeight = 0;
-            document.querySelectorAll(".swiper-slide").forEach(slide => {
-                slide.style.height = "auto";
-                maxHeight = Math.max(maxHeight, slide.offsetHeight);
-            });
-            document.querySelectorAll(".swiper-slide").forEach(slide => {
-                slide.style.height = `${maxHeight}px`;
-            });
-        }
+    slidesPerView: slidesPerView,
+    slidesPerGroup: 1,
+    // Navigation arrows
+    // navigation: {
+    //   disabledClass: 'BtnOff',
+    //   nextEl: '.reviews-left',
+    //   prevEl: '.reviews-right',
+    // },
+    navigation: {
+      nextEl: '.ButtonPrev',
+      prevEl: '.ButtonNext',
+    },
+    mousewheel: true,
+    keyboard: true,
+    touch: true,
+  });
+}
 
-        swiper.on('slideChange', setEqualHeight);
-        setEqualHeight();
+function doMurkUp(review) {
+  return `
+        <div class="Review swiper-slide">
+        <img class="UserIcon" src="${review.avatar_url}" alt="Avatar">
+          <h4 class="Name">${review.author}</h4>
+          <p class="ReviewText">${review.review}</p>
+        </div>
+      `;
+}
 
-        prevButton.addEventListener("click", () => swiper.slidePrev());
-        nextButton.addEventListener("click", () => swiper.slideNext());
+// запит з бекенду=========================================================
 
-    } catch (error) {
-        reviewsList.innerHTML = "<p class='error-message'>Not found</p>";
-        iziToast.error({
-            title: "Error",
-            message: "Failed to load reviews",
-            position: "topRight",
-        });
-        console.error("Error loading reviews:", error);
-    }
-});
+doFetch(createSwiper, doMurkUp);

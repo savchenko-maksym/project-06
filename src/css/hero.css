@@ -1,4 +1,4 @@
-.footer a {
+.hero-footer a {
   text-decoration: none;
 }
 
@@ -35,7 +35,7 @@
   padding-bottom: 212px;
 }
 
-.footer {
+.hero-footer {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -103,11 +103,9 @@
   }
   .hero-title {
     font-size: 90px;
-    margin-top: 300px;
-    margin-bottom: 187px;
   }
 
-  .footer {
+  .hero-footer {
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 32px;
@@ -152,7 +150,6 @@
 
   .hero-title {
     margin-left: 178px;
-    margin-bottom: 243px;
   }
 
   .socials {
