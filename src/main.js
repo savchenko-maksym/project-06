@@ -6,4 +6,5 @@ import './js/header';
 import './js/hero';
 import './js/mob-menu';
 import './js/projects';
+import './js/reviews';
 import './js/work-together';

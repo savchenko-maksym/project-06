@@ -1,83 +1,76 @@
-// import Swiper bundle with all modules installed
 import Swiper from 'swiper';
-
-// import styles bundle
+import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-function doFetch(foo, murkUpFoo) {
-  const REVIEWS_LIST = document.getElementById('reviewsList');
-  fetch('https://portfolio-js.b.goit.study/api/reviews')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      return response.json();
-    })
-    .then(reviews => {
-      const markup = reviews
-        .map(review => {
-          return murkUpFoo(review);
-        })
-        .join('');
+document.addEventListener("DOMContentLoaded", async () => {
+    const reviewsList = document.getElementById("reviews-list");
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+    const swiperContainer = document.querySelector(".swiper-reviews");
 
-      REVIEWS_LIST.innerHTML = markup; // Вставляємо HTML у список відгуків
-      foo();
-    })
-    .catch(error => {
-      console.error(error);
-      iziToast.error({
-        title: 'Помилка',
-        message: 'Не вдалося завантажити список відгуків',
-      });
-      REVIEWS_LIST.innerHTML = 'Not found'; // Відображаємо текст-заглушку
-    });
-}
+    if (!reviewsList || !swiperContainer) {
+        console.error("Element #reviews-list or .swiper-reviews not found.");
+        return;
+    }
+    
+    const apiUrl = "https://portfolio-js.b.goit.study/api/reviews";
 
-const SCREEN_WIDTH = window.innerWidth;
-let slidesPerView;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error("Failed to fetch reviews");
 
-if (SCREEN_WIDTH >= 1440) {
-  slidesPerView = 4;
-} else if (SCREEN_WIDTH >= 768 && SCREEN_WIDTH < 1440) {
-  slidesPerView = 2;
-} else if (SCREEN_WIDTH < 768) {
-  slidesPerView = 1;
-}
+        const reviews = await response.json();
+        if (!Array.isArray(reviews) || reviews.length === 0) {
+            reviewsList.innerHTML = "<p class='error-message'>No reviews available</p>";
+            return;
+        }
 
-function createSwiper() {
-  const SWIPER = new Swiper('.reviews-swiper', {
-    // Optional parameters
-    // cssMode: true,
-    navigation: true,
+        reviewsList.innerHTML = "";
+        reviews.forEach(review => {
+            const reviewItem = document.createElement("div");
+            reviewItem.classList.add("swiper-slide"); // Тут було помилково swiper-slide-reviews
+            reviewItem.innerHTML = `
+                <div class="container-review">
+                    <img 
+                        src="${review.avatar_url || 'images/default-avatar.png'}" 
+                        alt="${review.author}" 
+                        class="review-avatar" 
+                        loading="lazy" 
+                    >
+                    <h3 class="review-author">${review.author}</h3>
+                    <p class="review-text">${review.review}</p>
+                </div>
+            `;
+            reviewsList.appendChild(reviewItem);
+        });
 
-    slidesPerView: slidesPerView,
-    slidesPerGroup: 1,
-    // Navigation arrows
-    // navigation: {
-    //   disabledClass: 'BtnOff',
-    //   nextEl: '.reviews-left',
-    //   prevEl: '.reviews-right',
-    // },
-    navigation: {
-      nextEl: '.ButtonPrev',
-      prevEl: '.ButtonNext',
-    },
-    mousewheel: true,
-    keyboard: true,
-    touch: true,
-  });
-}
-
-function doMurkUp(review) {
-  return `
-        <div class="Review swiper-slide">
-        <img class="UserIcon" src="${review.avatar_url}" alt="Avatar">
-          <h4 class="Name">${review.author}</h4>
-          <p class="ReviewText">${review.review}</p>
-        </div>
-      `;
-}
-
-// запит з бекенду=========================================================
-
-doFetch(createSwiper, doMurkUp);
+        // Затримка перед ініціалізацією Swiper (щоб кнопки точно були доступні)
+        setTimeout(() => {
+            new Swiper(swiperContainer, {
+                modules: [Navigation, Pagination, Keyboard],
+                slidesPerView: 1,
+                spaceBetween: 16,
+                navigation: {
+                    nextEl: "#next-button",
+                    prevEl: "#prev-button",
+                },
+                breakpoints: {
+                    768: { slidesPerView: 2, spaceBetween: 16 },
+                    1440: { slidesPerView: 4, spaceBetween: 16 },
+                }
+            });
+        }, 100);
+        
+    } catch (error) {
+        reviewsList.innerHTML = "<p class='error-message'>Not found</p>";
+        iziToast.error({
+            title: "Error",
+            message: "Failed to load reviews",
+            position: "topRight",
+        });
+        console.error("Error loading reviews:", error);
+    }
+});

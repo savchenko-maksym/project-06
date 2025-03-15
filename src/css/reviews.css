@@ -1,169 +1,142 @@
-/* Стилі для мобільних пристроїв тут */
-.TitleText {
+/* Загальний стиль */
+.reviews {
+  padding: 64px 16px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  text-align: left;
+  
+}
+
+.reviews-title {
+  font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: rgba(250, 250, 250, 0.4);
-  text-align: left;
-  text-transform: uppercase;
   margin-bottom: 32px;
 }
 
-.ButtonPrev {
-  display: flex;
-  padding: 14px;
-  border: 1px solid rgba(250, 250, 250, 0.5);
-  border-radius: 60px;
-  fill: transparent;
-  stroke: #fafafa;
-  transform: rotate(180deg);
-}
-.ButtonNext {
-  display: flex;
-  padding: 14px;
-  border: 1px solid rgba(250, 250, 250, 0.5);
-  border-radius: 60px;
-  fill: transparent;
-  stroke: #fafafa;
+/* Стилі контейнера Swiper */
+.swiper-reviews {
+  
 }
 
-/* reviews  */
-
-#reviewsList {
+.swiper-reviews-wrapper {
   display: flex;
-  flex-wrap: nowrap; /* Забороняємо переносити елементи на новий рядок */
+  align-items: stretch;
   gap: 16px;
-  justify-content: flex-start;
-  max-width: 100%;
 }
-/* Картка відгуків */
-.Review {
+
+.swiper-slide-reviews {
+  
+}
+
+.container-review {
   border: 1px solid rgba(250, 250, 250, 0.2);
   border-radius: 20px;
   padding: 32px 24px;
-  flex-basis: calc((100% - 0px) / 1);
-  margin-right: 0;
+  width: 343px;
+  height: 302px;
+  
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
-.UserIcon {
+.swiper-reviews-slide {
+  
+}
+
+.review-avatar {
   border-radius: 10px;
   width: 48px;
   height: 48px;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-bottom: 32px;
 }
-.Name {
+
+.review-author {
+  font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   font-size: 20px;
-  line-height: 150%;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: #fafafa;
-  padding-bottom: 8px;
-  padding-top: 32px;
+  margin-bottom: 8px;
 }
-.ReviewText {
+
+.review-text {
+  font-family: "Inter Tight", sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 150%;
-  height: 188px;
+  line-height: 1.5;
   letter-spacing: -0.02em;
   color: rgba(250, 250, 250, 0.6);
-}
-/* Картка відгуків ================*/
 
-@media screen and (max-width: 767px) {
-  .ArrowNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-  }
-  .Section {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-  .Container {
-    max-width: 375px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
+
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 
-/* Планшети (з 768px) */
-@media screen and (min-width: 768px) {
-  .ArrowNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-  }
-  .Section {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-  .Container {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-
-  #reviewsList {
-    gap: 16px;
-  }
-  .Review {
-    border: 1px solid rgba(250, 250, 250, 0.2);
-    border-radius: 20px;
-    padding: 32px 24px;
-    flex-basis: 360px;
-    display: flex;
-    flex-direction: column;
-    /* Відключаємо зміщення відгуків, щоб вони не змінювали ширину */
-  }
+/* Стрілки */
+.container-button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 32px;
 }
 
-/* Десктоп (з 1440px) */
-@media screen and (min-width: 1440px) {
-  .ArrowNav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-  }
-  .Section {
-    padding-top: 82px;
-    padding-bottom: 82px;
-  }
-  .Container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-
-  #reviewsList {
-    gap: 16px;
-  }
-
-  .Review {
-    display: flex;
-    flex-direction: column;
-    flex-basis: calc((100% - 48px) / 4);
-  }
-  .ButtonNext:hover,
-  .ButtonPrev:hover {
-    stroke: rgb(59, 59, 59);
-  }
+.custom-button {
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  border-radius: 60px;
+  padding: 18px;
+  width: 68px;
+  height: 68px;
+  height: 68px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* disabled btn */
-
-.BtnOff {
-  stroke: rgba(250, 250, 250, 0.2);
-  border-color: rgba(250, 250, 250, 0.2);
+.custom-button:hover .arrows-rw {
+  stroke: var(--hover-color, #c32a30);
+  transform: rotate(15deg);
 }
 
-.SocialIconBack,
-.SocialIconNext {
-  stroke: inherit;
+.arrows-rw {
+width: 32px;
+  height: 32px;
+  stroke: rgba(255, 255, 255, 0.6);
+  transition: stroke 0.3s ease, transform 0.3s ease;
+  stroke: white;
+}
+
+/* Стиль для неактивної кнопки */
+.custom-button.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Адаптація для мобільних */
+@media (max-width: 768px) {
+  .reviews {
+    padding: 96px 32px;
+  }
+
+}
+
+/* Адаптація для десктопу */
+@media (min-width: 1440px) {
+  .reviews {
+    padding: 164px 32px;
+  }
 }
