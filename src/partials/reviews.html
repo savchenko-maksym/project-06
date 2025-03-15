@@ -1,24 +1,20 @@
-<section class="Section SectionReviews">
-  <div class="Container">
-    <h3 class="TitleText">REVIEWS</h3>
-
-    <!-- Swiper -->
-    <div class="reviews-swiper">
-      <div id="reviewsList">
-        <!-- тут додані відгуки -->
-      </div>
-      <div class="arrows">
-        <div class="ButtonPrev">
-          <svg class="SocialIconBack" width="32" height="32">
-            <use href="/img/icons.svg#icon-arrow-right"></use>
-          </svg>
-        </div>
-
-        <div class="ButtonNext">
-          <svg class="SocialIconNext" width="32" height="32">
-            <use href="/img/icons.svg#icon-arrow-right"></use>
-          </svg>
-        </div>
+<section class="reviews" id="reviews">
+  <div class="container-rw container">
+    <h2 class="reviews-title">REVIEWS</h2>
+    <div class="swiper swiper-reviews">
+      <ul class="swiper-wrapper swiper-reviews-wrapper" id="reviews-list"></ul>
+      <div class="container-button"> 
+        <button id="prev-button" class="custom-button" aria-label="Previous slide"> 
+          <svg
+            class="arrows-rw">
+            <use href="/img/reviews/icons.svg#icon-arrow-narrow-left"></use>
+          </svg> 
+        </button> 
+          <button id="next-button" class="custom-button" aria-label="Next slide"> <svg
+            class="arrows-rw">
+            <use href="/img/reviews/icons.svg#icon-arrow-narrow-right"></use>
+          </svg> 
+        </button> 
       </div>
     </div>
   </div>
